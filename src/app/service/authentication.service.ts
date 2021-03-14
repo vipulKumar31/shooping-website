@@ -7,17 +7,31 @@ import { HttpClient } from '@angular/common/http';
 export class AuthenticationService {
 
   constructor(
-    // private http: HttpClient
+    private http: HttpClient
   ) { }
 
-  authenticateUser(username: string, password: string) {
+  authenticateUser(userName: string, password: string) {
+    // return null;
     return 'Vipul Kumar';
     // return this.http.post<string>(
-    //   `localhost:8080/login/auth`,{'username':username,'password':password}
+    //   `localhost:8080/login/auth`,{'userName':userName,'password':password}
     // );
   }
 
-  setAuthenticatedUser(username) {
-    sessionStorage.setItem('username', username);
+  setAuthenticatedUser(userName, fullName) {
+    let user = { 'userName': userName, 'fullName': fullName };
+    sessionStorage.setItem('user', JSON.stringify(user));
+  }
+
+  getAuthenticatedUser() {
+    let user = sessionStorage.getItem('user');
+    if (user != null)
+      return user;
+    else
+      return null;
+  }
+
+  removeUser() {
+    sessionStorage.removeItem('user');
   }
 }

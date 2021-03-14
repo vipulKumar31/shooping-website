@@ -8,6 +8,9 @@ import { SignupComponent } from './userAuth/signup/signup.component';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
 import { HomepageComponent } from './homepage/homepage.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LogoutComponent } from './userAuth/logout/logout.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +18,15 @@ import { HomepageComponent } from './homepage/homepage.component';
     LoginComponent,
     SignupComponent,
     HeaderComponent,
-    HomepageComponent
+    HomepageComponent,
+    LogoutComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

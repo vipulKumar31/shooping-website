@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
-
-  constructor() { }
+  fullName: String;
+  constructor(
+    private route:ActivatedRoute
+  ) {
+  }
 
   ngOnInit() {
+    this.fullName=this.route.snapshot.params['fullName'];
   }
 
 }

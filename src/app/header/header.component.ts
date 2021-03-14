@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../service/authentication.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  fullName='';
+
+  constructor(
+    public authenticationService:AuthenticationService
+  ) { }
 
   ngOnInit() {
+    let user = JSON.parse(this.authenticationService.getAuthenticatedUser());
+    this.fullName = user.fullName;
   }
 
 }

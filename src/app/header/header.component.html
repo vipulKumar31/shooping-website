@@ -1,1 +1,24 @@
-<p>header works!</p>
+<header *ngIf="authenticationService.getAuthenticatedUser()">
+  <nav class="navbar navbar-expand-md navbar-light" style="background-color: #e3f2fd;">
+    <div><a [routerLink]="['/homepage', fullName]" class="navbar-brand">
+        e-Shopping</a></div>
+
+    <ul class="navbar-nav">
+      <li class="nav-item px-1 active">
+        <a [routerLink]="['/homepage', fullName]" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item px-1">
+        <a routerLink="/orders" class="nav-link">Your Orders</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav navbar-collapse justify-content-end">
+      <li class="nav-item">
+        <a routerLink="/profile" class="nav-link">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/logout" class="nav-link">Logout</a>
+      </li>
+    </ul>
+  </nav>
+</header>

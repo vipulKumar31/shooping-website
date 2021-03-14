@@ -8,7 +8,7 @@ import { AuthenticationService } from '../../service/authentication.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  username: string;
+  userName: string;
   password: string;
   errorMessage = '';
 
@@ -21,13 +21,13 @@ export class LoginComponent implements OnInit {
   }
 
   authenticateUser() {
-    // let fullName = this.authenticationService.authenticateUser(this.username, this.password)
-    // if (fullName != null) {
-    //   this.authenticationService.setAuthenticatedUser(this.username);
-    //   this.router.navigate(['homepage', fullName]);
-    // } else {
-    //   this.errorMessage = 'Invalid Credentials!';
-    // }
+    let fullName = this.authenticationService.authenticateUser(this.userName, this.password)
+    if (fullName != null) {
+      this.authenticationService.setAuthenticatedUser(this.userName, fullName);
+      this.router.navigate(['homepage', fullName]);
+    } else {
+      this.errorMessage = 'Invalid Credentials!';
+    }
   }
 
 }
